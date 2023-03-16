@@ -2,6 +2,7 @@
 const input = document.querySelector("#search-input");
 const form = document.querySelector("form");
 const mainContent = document.querySelector(".main");
+const imageContent = document.querySelector(".image");
 
 //to get data using fetch functions
 async function getData(city) {
@@ -17,7 +18,7 @@ async function getData(city) {
         <section>
             <h3>${data.main.temp}</h3>
             <p>${data.main.temp_min} / ${data.main.temp_max} C</p>
-            <p>icon ${data.weather[0].description}</p>
+            <p> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="icon" /> ${data.weather[0].description}</p>
         </section>
         <hr />
         <section>
@@ -25,6 +26,9 @@ async function getData(city) {
             <p>Humidity: ${data.main.humidity}%</p>
         </section>
     `;
+    imageContent.innerHTML =`
+        <img width="200" alt="image" src="./images/weather-images.jpg" />
+    `
 }
 
 //form submitting
