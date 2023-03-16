@@ -9,10 +9,11 @@ async function getData(city) {
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&appid=8ba5cc96c36f96b47b4d8afe09192f27&lang=en&q=${city}`);
     const data = await res.json();
     console.log(data);
+    const date = new Date(data.dt * 1000).toLocaleDateString();
     mainContent.innerHTML = `
         <section>
             <h3>${data.name}</h3>
-            <p>Wed 22 August</p>
+            <p>${date}</p>
         </section>
         <hr />
         <section>
@@ -20,21 +21,13 @@ async function getData(city) {
             <p>${data.main.temp_min} / ${data.main.temp_max} C</p>
             <p> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="icon" /> ${data.weather[0].description}</p>
         </section>
-        <hr />
-        <section>
-            <p>Wind: ${data.wind.speed}km/h</p>
-            <p>Humidity: ${data.main.humidity}%</p>
-        </section>
     `;
-    imageContent.innerHTML =`
-        <img width="200" alt="image" src="./images/weather-images.jpg" />
-    `
 }
 
 //form submitting
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if(input.value === "") {
+    if (input.value === "") {
         alert("Please, fill empty field!");
         return;
     }
