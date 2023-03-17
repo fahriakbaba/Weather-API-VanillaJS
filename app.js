@@ -17,9 +17,14 @@ async function getData(city) {
         </section>
         <hr />
         <section>
-            <h3>${data.main.temp}</h3>
-            <p>${data.main.temp_min} / ${data.main.temp_max} C</p>
-            <p> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="icon" /> ${data.weather[0].description}</p>
+            <h3>${data.main.temp} C</h3>
+            <p>${data.main.temp_min} C/ ${data.main.temp_max} C</p>
+            <p> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="icon" class="icon-image" /> ${data.weather[0].description}</p>
+        </section>
+        <hr />
+        <section>
+            <p>Wind: ${data.wind.speed}km/h</p>
+            <p>Humidity: ${data.main.humidity}%</p>
         </section>
     `;
 }

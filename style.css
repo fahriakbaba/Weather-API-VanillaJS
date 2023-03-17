@@ -1,3 +1,6 @@
+/* to import font family */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex&display=swap');
+
 /* reset in CSS */
 * {
     padding: 0;
@@ -6,13 +9,83 @@
 }
 
 :root {
-    --large: 5rem;
+    --x_small: .5rem;
+    --small: 1rem;
+    --large: 2.5rem;
+    --white:  rgb(255, 253, 253);
+    --radius: 4px;
+    --gray: gray;
+    --darkRed: darkred;
 }
 
+body {
+    background-image: url(./images/weather.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Roboto Flex', sans-serif;
+}
 
+/* container */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-margin-top: var(--large);
+    flex-direction: column;
+    margin-top: calc(var(--large) * 5);
+    background-color: var(--white);
+    padding: var(--large);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: .75;
+    border-radius: var(--radius);
+    box-shadow: 1px 1px 5px  var(--gray);
+}
+
+/* title */
+.container h1 {
+    color: var(--darkRed);
+}
+
+/* form */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 4px 0;
+    border: 2px solid var(--gray);
+    border-radius: var(--radius);
+    transition: all .7s;
+    margin: var(--small) 0;
+}
+
+form:hover {
+    outline: none;
+    border: 2px solid var(--darkRed);
+}
+
+input, button {
+    padding: var(--x_small);
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+input::placeholder {
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+button i {
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--darkRed);
+}
+
+
+/* icon image */
+.icon-image {
+    z-index: 10;
 }
