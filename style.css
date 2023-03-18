@@ -1,5 +1,6 @@
 /* to import font family */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /* reset in CSS */
 * {
@@ -18,6 +19,9 @@
     --radius: 4px;
     --gray: gray;
     --darkRed: darkred;
+    --warning: #FFCC00;
+    --primary: #0080FF;
+    --danger: #d9534f;
 }
 
 body {
@@ -50,14 +54,16 @@ body {
 
 /* title */
 .container h1 {
-    color: var(--darkRed);
+    color: var(--danger);
     letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* form */
 form {
+    width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 40px;
     padding: 4px 0;
@@ -69,24 +75,21 @@ form {
 
 form:hover {
     outline: none;
-    border: 2px solid var(--darkRed);
-    width: 90%;
+    border: 2px solid var(--danger);
     justify-content: space-between;
-}
-
-form:hover input {
-    letter-spacing: .5px;
-    flex: 1;
-    font-size: var(--small);
 }
 
 input {
     color: var(--white);
     letter-spacing: 1px;
+    flex:1;
+    color: var(--white);
+    font-size: var(--large);
 }
 
 input, button {
     padding: var(--x_small);
+    font-size: var(--normal);
     border: none;
     outline: none;
     background-color: inherit;
@@ -94,7 +97,7 @@ input, button {
 
 input::placeholder {
     font-family: 'Roboto Flex', sans-serif;
-    font-size: var(--x_small) * 3 / 2;
+    font-size: var(--normal);
     color: var(--white);
     font-size: var(--small);
 
@@ -109,7 +112,7 @@ button i {
 }
 
 form:hover button i {
-    color: var(--darkRed);
+    color: var(--danger);
 }
 
 /* main */
@@ -147,4 +150,26 @@ main section p {
 .icon-image {
     width: 50px;
     z-index: 10;
+}
+
+/* to show error */
+.show-message {
+    padding: 3px 8px;
+    color: var(--white);
+    font-size: var(--normal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: var(--small);
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.warning {
+    color: var(--warning);
+}
+
+.error {
+    color: var(--darkRed);
 }
