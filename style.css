@@ -10,8 +10,10 @@
 
 :root {
     --x_small: .5rem;
-    --small: 1rem;
-    --large: 2.5rem;
+    --small: .75rem;
+    --normal: 1rem;
+    --large: 1.5rem;
+    --x_large: 2rem;
     --white:  rgb(255, 253, 253);
     --radius: 4px;
     --gray: gray;
@@ -24,6 +26,9 @@ body {
     background-size: cover;
     height: 100vh;
     font-family: 'Roboto Flex', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* container */
@@ -32,13 +37,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: calc(var(--large) * 5);
-    background-color: var(--white);
+    /* margin-top: calc(var(--large) * 5); */
+    background-color: var(--gray);
     padding: var(--large);
-    max-width: 400px;
+    min-width: 450px;
     margin-left: auto;
     margin-right: auto;
-    opacity: .75;
+    opacity: .85;
     border-radius: var(--radius);
     box-shadow: 1px 1px 5px  var(--gray);
 }
@@ -46,6 +51,7 @@ body {
 /* title */
 .container h1 {
     color: var(--darkRed);
+    letter-spacing: 1px;
 }
 
 /* form */
@@ -55,7 +61,7 @@ form {
     align-items: center;
     height: 40px;
     padding: 4px 0;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--white);
     border-radius: var(--radius);
     transition: all .7s;
     margin: var(--small) 0;
@@ -64,6 +70,19 @@ form {
 form:hover {
     outline: none;
     border: 2px solid var(--darkRed);
+    width: 90%;
+    justify-content: space-between;
+}
+
+form:hover input {
+    letter-spacing: .5px;
+    flex: 1;
+    font-size: var(--small);
+}
+
+input {
+    color: var(--white);
+    letter-spacing: 1px;
 }
 
 input, button {
@@ -75,17 +94,57 @@ input, button {
 
 input::placeholder {
     font-family: 'Roboto Flex', sans-serif;
+    font-size: var(--x_small) * 3 / 2;
+    color: var(--white);
+    font-size: var(--small);
+
 }
 
 button i {
     cursor: pointer;
     font-size: 1.15rem;
     font-weight: 900;
+    color: var(--white);
+    transition: all .7s;
+}
+
+form:hover button i {
     color: var(--darkRed);
+}
+
+/* main */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main section {
+    margin: var(--small) 0;
+}
+
+main section h3 {
+    font-size: var(--normal);
+}
+
+main section p {
+    font-size: var(--small);
+    margin-top: 5px;
+}
+
+.weather-image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--x_small);
+    text-transform: capitalize;
+    margin: var(--x_small) 0;
 }
 
 
 /* icon image */
 .icon-image {
+    width: 50px;
     z-index: 10;
 }

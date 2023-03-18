@@ -10,6 +10,7 @@ async function getData(city) {
     const data = await res.json();
     console.log(data);
     const date = new Date(data.dt * 1000).toLocaleDateString();
+
     mainContent.innerHTML = `
         <section>
             <h3>${data.name}</h3>
@@ -17,9 +18,9 @@ async function getData(city) {
         </section>
         <hr />
         <section>
-            <h3>${data.main.temp} C</h3>
+            <h3 class="temp">${data.main.temp} C</h3>
             <p>${data.main.temp_min} C/ ${data.main.temp_max} C</p>
-            <p> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="icon" class="icon-image" /> ${data.weather[0].description}</p>
+            <p class="weather-image-container"> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="icon" class="icon-image" /> ${data.weather[0].description}</p>
         </section>
         <hr />
         <section>
@@ -27,6 +28,7 @@ async function getData(city) {
             <p>Humidity: ${data.main.humidity}%</p>
         </section>
     `;
+    input.value = "";
 }
 
 //form submitting
@@ -38,51 +40,3 @@ form.addEventListener("submit", (e) => {
     }
     getData(input.value);
 });
-
-
-
-/*
-{
-    "coord": {
-        "lon": 27.0923,
-        "lat": 38.4622
-    },
-    "weather": [
-        {
-            "id": 801,
-            "main": "Clouds",
-            "description": "few clouds",
-            "icon": "02n"
-        }
-    ],
-    "base": "stations",
-    "main": {
-        "temp": 8.73,
-        "feels_like": 4.7,
-        "temp_min": 8.73,
-        "temp_max": 8.73,
-        "pressure": 1014,
-        "humidity": 57
-    },
-    "visibility": 10000,
-    "wind": {
-        "speed": 9.26,
-        "deg": 350
-    },
-    "clouds": {
-        "all": 20
-    },
-    "dt": 1678737206,
-    "sys": {
-        "type": 1,
-        "id": 6977,
-        "country": "TR",
-        "sunrise": 1678681612,
-        "sunset": 1678724147
-    },
-    "timezone": 10800,
-    "id": 311044,
-    "name": "İzmir",
-    "cod": 200
-} 
-*/
